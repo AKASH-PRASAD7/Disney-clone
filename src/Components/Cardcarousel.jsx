@@ -5,10 +5,11 @@ import "swiper/css";
 import { Pagination } from "swiper";
 
 const Cardcarousel = (props) => {
+  const data = props.data;
   return (
     <>
       <div className="text-white">
-        <h1>{props.title}</h1>
+        <h1 className="mb-4 text-4xl font-semibold">{props.title}</h1>
         <Swiper
           slidesPerView={4}
           spaceBetween={10}
@@ -40,25 +41,28 @@ const Cardcarousel = (props) => {
           modules={[Pagination]}
           className="mySwiper"
         >
-          <SwiperSlide className="cardslider">
-            <Carditem />
-          </SwiperSlide>
-          <SwiperSlide className="cardslider">
-            <Carditem />
-          </SwiperSlide>
-          <SwiperSlide className="cardslider">
-            <Carditem />
-          </SwiperSlide>
-          <SwiperSlide className="cardslider">
-            <Carditem />
-          </SwiperSlide>
-          <SwiperSlide className="cardslider">
-            <Carditem />
-          </SwiperSlide>
+          {data &&
+            data.map((element, index) => {
+              return (
+                <SwiperSlide key={index} className="cardslider">
+                  <Carditem key={element.id} image={element.poster_path} />
+                </SwiperSlide>
+              );
+            })}
         </Swiper>
       </div>
     </>
   );
 };
+
+// {data &&
+//   data.map((element) => {
+//     return (
+//
+//  <SwiperSlide className="cardslider">
+// <Carditem key={element.id} image={element.backdrop_path} />
+// </SwiperSlide>
+//     );
+//   })}
 
 export default Cardcarousel;

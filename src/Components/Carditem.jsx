@@ -1,12 +1,19 @@
 import React from "react";
 import "../App.css";
 
-const Carditem = () => {
+/*
+ compressed side
+https://image.tmdb.org/t/p/w500/{poster_path}
+original size
+https://image.tmdb.org/t/p/original/{poster_path}
+*/
+
+const Carditem = (props) => {
   return (
-    <div className="card ">
+    <div className="card">
       <img
         className="h-full w-full object-cover rounded-lg"
-        src="https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg"
+        src={`https://image.tmdb.org/t/p/original${props.image}`}
         alt="avatar"
       />
     </div>
