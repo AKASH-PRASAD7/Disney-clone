@@ -27,6 +27,7 @@ body {
   height: 17rem;
   margin-bottom: 2rem;
 }
-.cardslider {
+.cardslider,
+.hero {
   background-color: #0f1014;
 }

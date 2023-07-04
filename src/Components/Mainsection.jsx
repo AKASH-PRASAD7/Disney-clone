@@ -5,7 +5,7 @@ import Herocarousel from "./Herocarousel";
 const Mainsection = () => {
   return (
     <div style={{ width: "90%" }}>
-      {/* <Herocarousel /> */}
+      <Herocarousel />
       <CardsContainer />
     </div>
   );

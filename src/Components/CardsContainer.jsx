@@ -11,11 +11,14 @@ const CardsContainer = () => {
     topRated,
     topSeries,
     fetchtopSeries,
+    fetchtrendingSeries,
+    trendingSeries,
   } = data;
   useEffect(() => {
     fetchUpcoming();
     fetchtopRated();
     fetchtopSeries();
+    fetchtrendingSeries();
     // eslint-disable-next-line
   }, []);
 
@@ -24,7 +27,7 @@ const CardsContainer = () => {
       <Cardcarousel data={upcoming} title={"Upcoming Movies"} />
       <Cardcarousel data={topRated} title={"Top Rated"} />
       <Cardcarousel data={topSeries} title={"Top Series"} />
-      <Cardcarousel title={"Top series"} />
+      <Cardcarousel data={trendingSeries} title={"Trending series"} />
     </div>
   );
 };
