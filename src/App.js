@@ -11,7 +11,7 @@ function App() {
         <Router>
           <Routes>
             <Route exact path="/" element={<Home />} />
-            <Route exact path="/play" element={<Play />} />
+            <Route exact path="/play/:id" element={<Play />} />
           </Routes>
         </Router>
       </MovieState>

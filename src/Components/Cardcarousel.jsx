@@ -45,7 +45,11 @@ const Cardcarousel = (props) => {
             data.map((element, index) => {
               return (
                 <SwiperSlide key={index} className="cardslider">
-                  <Carditem key={element.id} image={element.poster_path} />
+                  <Carditem
+                    key={element.id}
+                    data={element}
+                    image={element.poster_path}
+                  />
                 </SwiperSlide>
               );
             })}
