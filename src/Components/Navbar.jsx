@@ -5,6 +5,7 @@ import { BiUserCircle } from "react-icons/bi";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { BiHome } from "react-icons/bi";
 import { BiMovie } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -15,7 +16,9 @@ const Navbar = () => {
       <nav className=" mt-4 mx-3">
         <div className="flex flex-col gap-4">
           <div className="flex flex-col gap-1 cursor-pointer ">
-            <img src={logo} alt="logo" />
+            <Link to="/">
+              <img src={logo} alt="logo" />
+            </Link>
             <button className="bg-yellow-500 hover:bg-orange-500 text-white font-semibold py-2 px-2 rounded-full">
               <span className="flex">
                 {" "}
