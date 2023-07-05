@@ -6,6 +6,7 @@ const MovieState = (props) => {
   const [topRated, settopRated] = useState([]);
   const [topSeries, settopSeries] = useState([]);
   const [trendingSeries, setTrendingSeries] = useState([]);
+  const [movieDetail, setMovieDetail] = useState({});
   const fetchUpcoming = async () => {
     const data = await fetch(
       `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}`
@@ -34,6 +35,13 @@ const MovieState = (props) => {
     const data2 = await data.json();
     setTrendingSeries([...data2.results]);
   };
+  const fetchMovieById = async (id) => {
+    const data = await fetch(
+      `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`
+    );
+    const data2 = await data.json();
+    setMovieDetail({ ...data2 });
+  };
   return (
     <MovieContext.Provider
       value={{
@@ -45,6 +53,8 @@ const MovieState = (props) => {
         fetchtopSeries,
         fetchtrendingSeries,
         trendingSeries,
+        fetchMovieById,
+        movieDetail,
       }}
     >
       {props.children}
