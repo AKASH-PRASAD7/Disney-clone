@@ -12,9 +12,9 @@ const Reviews = ({ id }) => {
   return (
     <div>
       <h1 className="text-4xl mt-4  mb-4 ml-6 font-semibold">Reviews</h1>
-      <div className="flex justify-evenly">
-        {review[0].results &&
-          review[0].results.map((each, index) => {
+      <div className="flex gap-4">
+        {review.results &&
+          review.results.map((each, index) => {
             return index < 2 && <Reviewcard key={index} review={each} />;
           })}
       </div>

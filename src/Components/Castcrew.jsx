@@ -81,7 +81,7 @@ const Castcrew = ({ id }) => {
         {movieCast.crew &&
           movieCast.crew.map((each, index) => {
             return (
-              index < 3 && (
+              index < 2 && (
                 <SwiperSlide key={index} className="cardslider">
                   <div className=" mt-6 min-h-48 min-w-48 ">
                     <img
@@ -95,6 +95,7 @@ const Castcrew = ({ id }) => {
                     />
                     <div className=" text-sm">
                       <p className="font-bold text-lg">{each.original_name}</p>
+                      <p className="font-bold text-lg">{each.job}</p>
                     </div>
                   </div>
                 </SwiperSlide>

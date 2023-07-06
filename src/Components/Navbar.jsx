@@ -31,13 +31,17 @@ const Navbar = () => {
             <div className="cursor-pointer">
               <BiUserCircle />
             </div>
-            <div className="cursor-pointer">
-              <FaMagnifyingGlass />
-            </div>
-            <div className="cursor-pointer">
-              <BiHome />
-            </div>
-            <div className="cursor-pointer">
+            <Link to="/search">
+              <div className="cursor-pointer">
+                <FaMagnifyingGlass />
+              </div>
+            </Link>
+            <Link to="/">
+              <div className="cursor-pointer">
+                <BiHome />
+              </div>
+            </Link>
+            <div className="cursor-pointer ">
               <BiMovie />
             </div>
           </div>

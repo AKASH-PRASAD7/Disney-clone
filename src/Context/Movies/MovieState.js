@@ -8,7 +8,9 @@ const MovieState = (props) => {
   const [trendingSeries, setTrendingSeries] = useState([]);
   const [movieDetail, setMovieDetail] = useState({});
   const [movieCast, setMovieCast] = useState({});
-  const [review, setReview] = useState([]);
+  const [review, setReview] = useState({});
+  const [similar, setSimilar] = useState([]);
+  const [recommended, setRecommended] = useState([]);
   const fetchUpcoming = async () => {
     const data = await fetch(
       `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}`
@@ -56,7 +58,21 @@ const MovieState = (props) => {
       `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${API_KEY}`
     );
     const data2 = await data.json();
-    setReview([data2]);
+    setReview({ ...data2 });
+  };
+  const fetchSimilar = async (id) => {
+    const data = await fetch(
+      `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${API_KEY}`
+    );
+    const data2 = await data.json();
+    setSimilar([...data2.results]);
+  };
+  const fetchRecommended = async (id) => {
+    const data = await fetch(
+      `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${API_KEY}`
+    );
+    const data2 = await data.json();
+    setRecommended([...data2.results]);
   };
   return (
     <MovieContext.Provider
@@ -75,6 +91,10 @@ const MovieState = (props) => {
         fetchMoviecast,
         fetchReviews,
         review,
+        fetchRecommended,
+        recommended,
+        similar,
+        fetchSimilar,
       }}
     >
       {props.children}

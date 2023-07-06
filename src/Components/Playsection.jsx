@@ -35,7 +35,7 @@ const Playsection = ({ data }) => {
                 <div className="card cardplay rounded-lg flex items-center justify-center">
                   <img
                     className="h-full w-full object-cover rounded-lg"
-                    src={data && `${url}${data.poster_path}`}
+                    src={data.poster_path && `${url}${data.poster_path}`}
                     alt="avatar"
                   />
                 </div>
@@ -95,8 +95,8 @@ const Playsection = ({ data }) => {
                 : `Loading..`}
             </p>
           </div>
-          <Castcrew id={data.id} />
-          <Reviews id={data.id} />
+          {data.id && <Castcrew id={data.id} />}
+          {data.id && <Reviews id={data.id} />}
         </div>
       )}
     </>

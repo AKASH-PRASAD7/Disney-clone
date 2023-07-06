@@ -36,20 +36,22 @@ const Reviewcard = ({ review }) => {
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            A
+            {review.author && review.author[0]}
           </Avatar>
         }
         title={review.author && review.author}
         subheader={review.created_at && formatDate(review.created_at)}
       />
       <Typography component="legend"></Typography>
-      <Rating
-        className="ml-5"
-        name="read-only"
-        value={review.author_details.rating && review.author_details.rating}
-        readOnly
-        size="small"
-      />
+      {review.author_details.rating && (
+        <Rating
+          className="ml-5"
+          name="read-only"
+          value={review.author_details.rating}
+          readOnly
+          size="small"
+        />
+      )}
       <CardContent>
         <Typography variant="body2">
           {review.content && limitString(review.content)}
