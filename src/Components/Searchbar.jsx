@@ -1,15 +1,24 @@
-import React, { useState } from "react";
+import React, { useRef, useContext } from "react";
 import { FaMagnifyingGlass } from "react-icons/fa6";
+import MovieContext from "../Context/Movies/MoviesContext";
 
-const Searchbar = () => {
-  const [filter, setFilter] = useState("");
-  const findMovies = (event) => {
-    console.log("dfA");
-    //   const input = event.target.parentElement.parentElement.childNodes[1].value;
-    //   console.log(input);
-    //   // input.value("");
-    //   // setFilter("");
+const Searchbar = ({ isMovie }) => {
+  const searchInput = useContext(MovieContext);
+  const { setsearchQuery } = searchInput;
+  const inputRef = useRef(null);
+
+  const addPlusBetweenWords = (str) => {
+    return str.split(" ").join("+");
   };
+
+  const findMovies = (event) => {
+    event.preventDefault();
+    let inputValue = inputRef.current.value.toLowerCase();
+    inputValue = addPlusBetweenWords(inputValue);
+    setsearchQuery(inputValue);
+    inputRef.current.value = "";
+  };
+
   return (
     <div className="m-4 flex justify-center text-blue-800 ">
       <div
@@ -24,8 +33,8 @@ const Searchbar = () => {
             className="searchIcon rounded-xl outline-none form-control p-4 form-control-sm w-5/6 h-12  "
             type="text"
             id="myInput"
-            onChange={(e) => setFilter(e.target.value.toLowerCase())}
-            placeholder="  Search Movies..."
+            ref={inputRef}
+            placeholder={`Search ${isMovie}`}
           />
         </form>
       </div>

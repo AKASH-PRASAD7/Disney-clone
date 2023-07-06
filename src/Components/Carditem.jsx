@@ -16,7 +16,11 @@ const Carditem = (props) => {
       <div className="card">
         <img
           className="h-full w-full object-cover rounded-lg"
-          src={`https://image.tmdb.org/t/p/original${props.image}`}
+          src={
+            props.image
+              ? `https://image.tmdb.org/t/p/original${props.image}`
+              : `https://image.tmdb.org/t/p/original/apbrbWs8M9lyOpJYU5WXrpFbk1Z.jpg`
+          }
           alt="avatar"
         />
       </div>

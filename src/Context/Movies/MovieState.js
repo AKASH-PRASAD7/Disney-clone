@@ -11,6 +11,11 @@ const MovieState = (props) => {
   const [review, setReview] = useState({});
   const [similar, setSimilar] = useState([]);
   const [recommended, setRecommended] = useState([]);
+  const [movieSearch, setmovieSearch] = useState([]);
+  const [tvSearch, setTvSearch] = useState([]);
+  //search input
+  const [searchQuery, setsearchQuery] = useState();
+
   const fetchUpcoming = async () => {
     const data = await fetch(
       `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}`
@@ -74,6 +79,22 @@ const MovieState = (props) => {
     const data2 = await data.json();
     setRecommended([...data2.results]);
   };
+
+  const searchMovies = async (text) => {
+    const data = await fetch(
+      `https://api.themoviedb.org/3/search/movie?query=${text}&api_key=${API_KEY}`
+    );
+    const data2 = await data.json();
+    setmovieSearch([...data2.results]);
+  };
+
+  const searchTv = async (text) => {
+    const data = await fetch(
+      `https://api.themoviedb.org/3/search/tv?query=${text}&api_key=${API_KEY}`
+    );
+    const data2 = await data.json();
+    setTvSearch([...data2.results]);
+  };
   return (
     <MovieContext.Provider
       value={{
@@ -95,6 +116,12 @@ const MovieState = (props) => {
         recommended,
         similar,
         fetchSimilar,
+        searchQuery,
+        setsearchQuery,
+        searchTv,
+        searchMovies,
+        movieSearch,
+        tvSearch,
       }}
     >
       {props.children}
