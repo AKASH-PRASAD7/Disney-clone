@@ -3,6 +3,7 @@ import "../App.css";
 import Rating from "@mui/material/Rating";
 import Typography from "@mui/material/Typography";
 import Castcrew from "./Castcrew";
+import Reviews from "./Reviews";
 const Playsection = ({ data }) => {
   const extractYear = (dateString) => {
     var dateParts = dateString.split("-");
@@ -86,7 +87,7 @@ const Playsection = ({ data }) => {
               </div>
             </div>
           </div>
-          <div className="text-4xl font-semibold mt-3">
+          <div className="text-4xl mt-4 ml-6 font-semibold">
             Overview
             <p className="text-base font-normal pt-4">
               {data.overview && data.overview
@@ -95,7 +96,7 @@ const Playsection = ({ data }) => {
             </p>
           </div>
           <Castcrew id={data.id} />
-          <div>reviews</div>
+          <Reviews id={data.id} />
         </div>
       )}
     </>
