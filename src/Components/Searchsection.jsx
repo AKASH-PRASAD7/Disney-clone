@@ -27,12 +27,15 @@ const Searchsection = () => {
   const searchInput = searchQuery;
   useEffect(() => {
     window.scrollTo(0, 0);
+
     fetchUpcoming();
+
     // eslint-disable-next-line
   }, []);
   useEffect(() => {
     searchInput && searchMovies(searchInput);
     searchInput && searchTv(searchInput);
+    // eslint-disable-next-line
   }, [searchInput]);
 
   return (
@@ -75,6 +78,7 @@ const Searchsection = () => {
                   <Carditem
                     key={element.id}
                     data={element}
+                    isMovie={true}
                     image={
                       element.poster_path
                         ? element.poster_path
@@ -90,6 +94,7 @@ const Searchsection = () => {
                 <Carditem
                   key={element.id}
                   data={element}
+                  isMovie={true}
                   image={
                     element.poster_path
                       ? element.poster_path
@@ -104,6 +109,7 @@ const Searchsection = () => {
                 <Carditem
                   key={element.id}
                   data={element}
+                  isMovie={false}
                   image={
                     element.poster_path
                       ? element.poster_path

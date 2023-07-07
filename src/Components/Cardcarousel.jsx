@@ -60,14 +60,4 @@ const Cardcarousel = (props) => {
   );
 };
 
-// {data &&
-//   data.map((element) => {
-//     return (
-//
-//  <SwiperSlide className="cardslider">
-// <Carditem key={element.id} image={element.backdrop_path} />
-// </SwiperSlide>
-//     );
-//   })}
-
 export default Cardcarousel;

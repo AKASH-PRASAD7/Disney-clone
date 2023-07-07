@@ -19,6 +19,7 @@ const CardsContainer = () => {
     fetchtopRated();
     fetchtopSeries();
     fetchtrendingSeries();
+
     // eslint-disable-next-line
   }, []);
 

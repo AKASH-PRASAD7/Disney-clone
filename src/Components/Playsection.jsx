@@ -2,8 +2,8 @@ import React from "react";
 import "../App.css";
 import Rating from "@mui/material/Rating";
 import Typography from "@mui/material/Typography";
-import MovieState from "../Context/Movies/MovieState";
-const Playsection = ({ data }) => {
+
+const Playsection = ({ data, isMovie }) => {
   const extractYear = (dateString) => {
     var dateParts = dateString.split("-");
     var year = parseInt(dateParts[0], 10);
@@ -21,12 +21,14 @@ const Playsection = ({ data }) => {
   return (
     <>
       {data && (
-        <div className="text-white">
-          <div
-            style={{ backgroundImage: `url('${url}${data.backdrop_path}')` }}
-            className="movieposter  bg-cover bg-center h-screen"
-          >
-            <div className="backgorund  h-full image flex flex-row ">
+        <div className="text-white ">
+          <div className="movieposter static  bg-cover bg-center h-screen">
+            <img
+              className="h-full w-full mix-blend-overlay"
+              src={`${url}${data.backdrop_path}`}
+              alt="bgimage"
+            />
+            <div className="backgorund absolute top-0  w-full  h-full image flex flex-row ">
               <div
                 style={{ width: "32%" }}
                 className=" w-1/3  h-full flex items-center justify-center"
@@ -41,16 +43,20 @@ const Playsection = ({ data }) => {
               </div>
               <div
                 style={{ width: "68%" }}
-                className="moviedetails  flex flex-col items-center justify-center text-4xl font-bold "
+                className="moviedetails  flex flex-col items-center justify-center text-2xl font-bold "
               >
                 <div className="w-full">
                   <h1>
-                    {data &&
-                    data.original_title &&
-                    extractYear(data.release_date)
-                      ? `${data.original_title} (${extractYear(
-                          data.release_date
-                        )})`
+                    {isMovie
+                      ? data &&
+                        data.original_title &&
+                        extractYear(data.release_date)
+                        ? `${data.original_title} (${extractYear(
+                            data.release_date
+                          )})`
+                        : "Loading..."
+                      : data && data.name && extractYear(data.first_air_date)
+                      ? `${data.name} (${extractYear(data.first_air_date)})`
                       : "Loading..."}
                   </h1>
                   <div className="moviedetails">
@@ -69,13 +75,15 @@ const Playsection = ({ data }) => {
                       })}
                   </p>
                   <p className=" text-xl">
-                    {data &&
-                    convertMinutes(data.runtime).hours &&
-                    convertMinutes(data.runtime).minutes
-                      ? `${convertMinutes(data.runtime).hours} ${
-                          convertMinutes(data.runtime).minutes
-                        }`
-                      : `Loading..`}
+                    {isMovie
+                      ? data &&
+                        convertMinutes(data.runtime).hours &&
+                        convertMinutes(data.runtime).minutes
+                        ? `${convertMinutes(data.runtime).hours} ${
+                            convertMinutes(data.runtime).minutes
+                          }`
+                        : `Loading..`
+                      : ``}
                   </p>
                 </div>
                 <div className="w-full mt-4">

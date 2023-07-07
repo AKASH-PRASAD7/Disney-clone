@@ -4,6 +4,7 @@ import Home from "./Pages/Home";
 import Play from "./Pages/Play";
 import Search from "./Pages/Search";
 import MovieState from "./Context/Movies/MovieState";
+import Watch from "./Pages/Watch";
 function App() {
   return (
     <div className="App">
@@ -13,6 +14,7 @@ function App() {
             <Route exact path="/" element={<Home />} />
             <Route exact path="/play/:id" element={<Play />} />
             <Route exact path="/search" element={<Search />} />
+            <Route exact path="/list" element={<Watch />} />
           </Routes>
         </Router>
       </MovieState>

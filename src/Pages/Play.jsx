@@ -48,6 +48,7 @@ const Play = () => {
       fetchTvcast(id);
       fetchTvReviews(id);
     }
+
     // eslint-disable-next-line
   }, [id]);
   return (
@@ -57,17 +58,32 @@ const Play = () => {
         <div style={{ width: "90%" }}>
           {isMovie ? (
             <>
-              <Playsection data={movieDetail && movieDetail} />
+              <Playsection
+                isMovie={isMovie}
+                data={movieDetail && movieDetail}
+              />
               {movieCast && <Castcrew movie={movieCast} />}
               {review && <Reviews movie={review} />}
-              <Recommended similar={similar} recommended={recommended} />
+              {similar && recommended && (
+                <Recommended
+                  isMovie={true}
+                  similar={similar}
+                  recommended={recommended}
+                />
+              )}
             </>
           ) : (
             <>
-              <Playsection data={TvDetail && TvDetail} />
+              <Playsection isMovie={isMovie} data={TvDetail && TvDetail} />
               {tvCast && <Castcrew movie={tvCast} />}
               {review && <Reviews movie={tvReview} />}
-              <Recommended similar={tvSimilar} recommended={tvRecommended} />
+              {similar && recommended && (
+                <Recommended
+                  isMovie={false}
+                  similar={tvSimilar}
+                  recommended={tvRecommended}
+                />
+              )}
             </>
           )}
         </div>

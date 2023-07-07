@@ -11,7 +11,7 @@ const Navbar = () => {
   return (
     <div
       style={{ width: "10%" }}
-      className="h-screen text-white sticky top-0 left-0"
+      className="h-screen z-10 text-white sticky top-0 left-0"
     >
       <nav className=" mt-4 mx-3">
         <div className="flex flex-col gap-4">
@@ -41,9 +41,11 @@ const Navbar = () => {
                 <BiHome />
               </div>
             </Link>
-            <div className="cursor-pointer ">
-              <BiMovie />
-            </div>
+            <Link to="/list">
+              <div className="cursor-pointer ">
+                <BiMovie />
+              </div>
+            </Link>
           </div>
         </div>
       </nav>
