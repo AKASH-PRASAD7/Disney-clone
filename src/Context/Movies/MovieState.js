@@ -13,6 +13,14 @@ const MovieState = (props) => {
   const [recommended, setRecommended] = useState([]);
   const [movieSearch, setmovieSearch] = useState([]);
   const [tvSearch, setTvSearch] = useState([]);
+  const [isMovie, setIsMovie] = useState(true);
+
+  //tv
+  const [TvDetail, setTvDetail] = useState({});
+  const [tvCast, setTvCast] = useState({});
+  const [tvReview, setTvReview] = useState({});
+  const [tvSimilar, setTvSimilar] = useState([]);
+  const [tvRecommended, setTvRecommended] = useState([]);
   //search input
   const [searchQuery, setsearchQuery] = useState();
 
@@ -95,6 +103,45 @@ const MovieState = (props) => {
     const data2 = await data.json();
     setTvSearch([...data2.results]);
   };
+
+  //Tv
+  const fetchTvById = async (id) => {
+    const data = await fetch(
+      `https://api.themoviedb.org/3/tv/${id}?api_key=${API_KEY}`
+    );
+    const data2 = await data.json();
+    setTvDetail({ ...data2 });
+  };
+
+  const fetchTvcast = async (id) => {
+    const data = await fetch(
+      `https://api.themoviedb.org/3/tv/${id}/credits?api_key=${API_KEY}`
+    );
+    const data2 = await data.json();
+    setTvCast({ ...data2 });
+  };
+  const fetchTvReviews = async (id) => {
+    const data = await fetch(
+      `https://api.themoviedb.org/3/tv/${id}/reviews?api_key=${API_KEY}`
+    );
+    const data2 = await data.json();
+    setTvReview({ ...data2 });
+  };
+  const fetchTvSimilar = async (id) => {
+    const data = await fetch(
+      `https://api.themoviedb.org/3/tv/${id}/similar?api_key=${API_KEY}`
+    );
+    const data2 = await data.json();
+    setTvSimilar([...data2.results]);
+  };
+  const fetchTvRecommended = async (id) => {
+    const data = await fetch(
+      `https://api.themoviedb.org/3/tv/${id}/recommendations?api_key=${API_KEY}`
+    );
+    const data2 = await data.json();
+    setTvRecommended([...data2.results]);
+  };
+
   return (
     <MovieContext.Provider
       value={{
@@ -122,6 +169,18 @@ const MovieState = (props) => {
         searchMovies,
         movieSearch,
         tvSearch,
+        isMovie,
+        setIsMovie,
+        TvDetail,
+        fetchTvById,
+        fetchTvReviews,
+        fetchTvRecommended,
+        fetchTvSimilar,
+        fetchTvcast,
+        tvCast,
+        tvReview,
+        tvRecommended,
+        tvSimilar,
       }}
     >
       {props.children}

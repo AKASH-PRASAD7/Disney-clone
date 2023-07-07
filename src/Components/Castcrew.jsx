@@ -1,18 +1,11 @@
-import React, { useContext, useEffect } from "react";
-import MovieContext from "../Context/Movies/MoviesContext";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
-const Castcrew = ({ id }) => {
-  const data = useContext(MovieContext);
-  const { movieCast, fetchMoviecast } = data;
+const Castcrew = ({ movie }) => {
   const url = "https://image.tmdb.org/t/p/w500/";
-  useEffect(() => {
-    fetchMoviecast(id);
-    // eslint-disable-next-line
-  }, [id]);
   return (
-    <div>
+    <div className="text-white">
       <h1 className="text-4xl mt-4 ml-6 font-semibold">Cast</h1>
       <Swiper
         slidesPerView={1}
@@ -33,8 +26,8 @@ const Castcrew = ({ id }) => {
         }}
         className="mySwiper mb-5"
       >
-        {movieCast.cast &&
-          movieCast.cast.map((each, index) => {
+        {movie.cast &&
+          movie.cast.map((each, index) => {
             return (
               index < 8 && (
                 <SwiperSlide key={index} className="cardslider">
@@ -78,8 +71,8 @@ const Castcrew = ({ id }) => {
         }}
         className="mySwiper mb-5"
       >
-        {movieCast.crew &&
-          movieCast.crew.map((each, index) => {
+        {movie.crew &&
+          movie.crew.map((each, index) => {
             return (
               index < 2 && (
                 <SwiperSlide key={index} className="cardslider">

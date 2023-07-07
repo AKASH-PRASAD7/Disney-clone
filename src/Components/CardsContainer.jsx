@@ -24,10 +24,14 @@ const CardsContainer = () => {
 
   return (
     <div>
-      <Cardcarousel data={upcoming} title={"Upcoming Movies"} />
-      <Cardcarousel data={topRated} title={"Top Rated"} />
-      <Cardcarousel data={topSeries} title={"Top Series"} />
-      <Cardcarousel data={trendingSeries} title={"Trending series"} />
+      <Cardcarousel isMovie={true} data={upcoming} title={"Upcoming Movies"} />
+      <Cardcarousel isMovie={true} data={topRated} title={"Top Rated"} />
+      <Cardcarousel isMovie={false} data={topSeries} title={"Top Series"} />
+      <Cardcarousel
+        isMovie={false}
+        data={trendingSeries}
+        title={"Trending series"}
+      />
     </div>
   );
 };

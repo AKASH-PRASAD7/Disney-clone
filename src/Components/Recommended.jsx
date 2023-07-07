@@ -4,7 +4,7 @@ const Recommended = ({ similar, recommended }) => {
   return (
     <div className="text-white mt-5">
       {recommended && <Cardcarousel data={recommended} title={"Recommended"} />}
-      {similar && <Cardcarousel data={similar} title={"Similar Movies"} />}
+      {similar && <Cardcarousel data={similar} title={"Similar"} />}
     </div>
   );
 };

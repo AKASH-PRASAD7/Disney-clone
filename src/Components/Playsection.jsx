@@ -2,8 +2,7 @@ import React from "react";
 import "../App.css";
 import Rating from "@mui/material/Rating";
 import Typography from "@mui/material/Typography";
-import Castcrew from "./Castcrew";
-import Reviews from "./Reviews";
+import MovieState from "../Context/Movies/MovieState";
 const Playsection = ({ data }) => {
   const extractYear = (dateString) => {
     var dateParts = dateString.split("-");
@@ -95,8 +94,6 @@ const Playsection = ({ data }) => {
                 : `Loading..`}
             </p>
           </div>
-          {data.id && <Castcrew id={data.id} />}
-          {data.id && <Reviews id={data.id} />}
         </div>
       )}
     </>

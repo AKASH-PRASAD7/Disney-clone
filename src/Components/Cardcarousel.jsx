@@ -49,6 +49,7 @@ const Cardcarousel = (props) => {
                     key={element.id}
                     data={element}
                     image={element.poster_path}
+                    isMovie={props.isMovie}
                   />
                 </SwiperSlide>
               );
