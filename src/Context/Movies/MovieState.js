@@ -15,6 +15,7 @@ const MovieState = (props) => {
   const [tvSearch, setTvSearch] = useState([]);
   const [isMovie, setIsMovie] = useState(true);
   const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(1);
 
   //tv
   const [TvDetail, setTvDetail] = useState({});
@@ -29,6 +30,15 @@ const MovieState = (props) => {
   const [animation, setAnimation] = useState([]);
   const [fantasy, setFantasy] = useState([]);
   const [scifi, setScifi] = useState([]);
+
+  //tvlist
+  const [tvaction, settvAction] = useState([]);
+  const [tvadventure, settvAdventure] = useState([]);
+  const [tvanimation, settvAnimation] = useState([]);
+  const [tvfantasy, settvFantasy] = useState([]);
+  const [tvscifi, settvScifi] = useState([]);
+  //main data
+  const [movieListData, setMovieListData] = useState([]);
 
   //search input
   const [searchQuery, setsearchQuery] = useState();
@@ -187,46 +197,104 @@ const MovieState = (props) => {
   const fetchAction = async () => {
     setLoading(true);
     const data = await fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=28`
+      `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=28&page=${page}`
     );
     const data2 = await data.json();
     setAction([...data2.results]);
+    setMovieListData([...action]);
     setLoading(false);
   };
   const fetchAdventure = async () => {
     setLoading(true);
     const data = await fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=12`
+      `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=12&page=${page}`
     );
     const data2 = await data.json();
     setAdventure([...data2.results]);
+    setMovieListData([...adventure]);
     setLoading(false);
   };
   const fetchAnimation = async () => {
     setLoading(true);
     const data = await fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=16`
+      `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=16&page=${page}`
     );
     const data2 = await data.json();
     setAnimation([...data2.results]);
+    setMovieListData([...animation]);
     setLoading(false);
   };
   const fetchFantasy = async () => {
     setLoading(true);
     const data = await fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=14`
+      `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=14&page=${page}`
     );
     const data2 = await data.json();
     setFantasy([...data2.results]);
+    setMovieListData([...fantasy]);
     setLoading(false);
   };
   const fetchScifi = async () => {
     setLoading(true);
     const data = await fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=878`
+      `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=878&page=${page}`
     );
     const data2 = await data.json();
     setScifi([...data2.results]);
+    setMovieListData([...scifi]);
+    setLoading(false);
+  };
+
+  //tv list page
+
+  const fetchtvAction = async () => {
+    setLoading(true);
+    const data = await fetch(
+      `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=10759&page=${page}`
+    );
+    const data2 = await data.json();
+    settvAction([...data2.results]);
+    setMovieListData([...tvaction]);
+    setLoading(false);
+  };
+  const fetchtvAdventure = async () => {
+    setLoading(true);
+    const data = await fetch(
+      `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=9648&page=${page}`
+    );
+    const data2 = await data.json();
+    settvAdventure([...data2.results]);
+    setMovieListData([...tvadventure]);
+    setLoading(false);
+  };
+  const fetchtvAnimation = async () => {
+    setLoading(true);
+    const data = await fetch(
+      `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=16&page=${page}`
+    );
+    const data2 = await data.json();
+    settvAnimation([...data2.results]);
+    setMovieListData([...tvanimation]);
+    setLoading(false);
+  };
+  const fetchtvFantasy = async () => {
+    setLoading(true);
+    const data = await fetch(
+      `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=18&page=${page}`
+    );
+    const data2 = await data.json();
+    settvFantasy([...data2.results]);
+    setMovieListData([...tvfantasy]);
+    setLoading(false);
+  };
+  const fetchtvScifi = async () => {
+    setLoading(true);
+    const data = await fetch(
+      `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=10765&page=${page}`
+    );
+    const data2 = await data.json();
+    settvScifi([...data2.results]);
+    setMovieListData([...tvscifi]);
     setLoading(false);
   };
 
@@ -275,11 +343,15 @@ const MovieState = (props) => {
         fetchFantasy,
         fetchAnimation,
         fetchAdventure,
-        action,
-        adventure,
-        fantasy,
-        scifi,
-        animation,
+        page,
+        setPage,
+        movieListData,
+        fetchtvAction,
+        fetchtvScifi,
+        fetchtvFantasy,
+        fetchtvAnimation,
+        fetchtvAdventure,
+        setMovieListData,
       }}
     >
       {props.children}
