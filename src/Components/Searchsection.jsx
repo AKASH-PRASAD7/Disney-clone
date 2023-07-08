@@ -5,6 +5,7 @@ import Searchbar from "./Searchbar";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import { blueGrey } from "@mui/material/colors";
+import Loader from "./Loader";
 
 const Searchsection = () => {
   const [alignment, setAlignment] = useState("Movies");
@@ -22,6 +23,7 @@ const Searchsection = () => {
     searchMovies,
     movieSearch,
     tvSearch,
+    loading,
   } = data;
 
   const searchInput = searchQuery;
@@ -33,8 +35,11 @@ const Searchsection = () => {
   //   // eslint-disable-next-line
   // }, []);
   useEffect(() => {
-    searchInput && searchMovies(searchInput);
-    searchInput && searchTv(searchInput);
+    if (alignment === "Movies") {
+      searchInput && searchMovies(searchInput);
+    } else if (alignment === "Tv Series") {
+      searchInput && searchTv(searchInput);
+    }
     // eslint-disable-next-line
   }, [searchInput]);
 
@@ -56,6 +61,7 @@ const Searchsection = () => {
       </div>
       <p className="mb-4 mt-2 text-4xl font-semibold">Search {alignment}</p>
       <div className="flex flex-wrap gap-4">
+        {loading && <Loader />}
         {alignment === "Movies"
           ? !searchInput
             ? upcoming &&
