@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+# Disney Clone Website
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+This project is a clone of the Disney website, built using React and Tailwind CSS. It provides features like searching for movies and TV shows, discovering new movies and TV shows, and more. The data for movies and TV shows is fetched from the MovieDB API using the Fetch API.
 
-In the project directory, you can run:
+## Screenshots
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Search for movies and TV shows: Users can search for specific movies or TV shows using keywords. The search results will be displayed with relevant details.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Discover new movies and TV shows: Users can explore a collection of movies and TV shows to discover new content. The collection includes popular movies, trending movies, top-rated movies, popular TV shows, and more.
 
-### `npm test`
+- Movie and TV show details: Users can view detailed information about a specific movie or TV show, including the title, overview, release date, rating, and more.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies Used
 
-### `npm run build`
+- React: A JavaScript library for building user interfaces. It is used to create the UI components and handle the application's state and logic.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Tailwind CSS: A utility-first CSS framework that provides pre-built styles and classes. It is used for styling the components and creating a responsive layout.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- MovieDB API: An API that provides movie and TV show data. It is used to fetch information about movies and TV shows, search for specific content, and retrieve details for individual titles.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Getting Started
 
-### `npm run eject`
+To run this project locally, follow these steps:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Clone the repository:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+git clone https://github.com/AKASH-PRASAD7/Disney-clone.git
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. Install the dependencies:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
+cd disney-clone
+npm install
+```
 
-## Learn More
+3. Add your MovieDb API key:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+mkdir .env.local
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- REACT_APP_API_KEY=<YOUR_KEY>
 
-### Code Splitting
+4. Set up the MovieDB API key:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+   - Get an API key from the MovieDB website: [https://www.themoviedb.org/documentation/api](https://www.themoviedb.org/documentation/api)
+   - Create a `.env` file in the project root directory.
+   - Add the following line to the `.env` file, replacing `<your-api-key>` with your actual API key:
 
-### Analyzing the Bundle Size
+     ```
+     REACT_APP_MOVIEDB_API_KEY=<your-api-key>
+     ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+5. Start the development server:
 
-### Making a Progressive Web App
+```
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+6. Open the application in your browser:
 
-### Advanced Configuration
+```
+http://localhost:3000
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Contributing
 
-### Deployment
+Contributions are welcome! If you find any issues or want to enhance the project, feel free to open a pull request.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## License
 
-### `npm run build` fails to minify
+This project is licensed under the [MIT License](LICENSE).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Acknowledgments
+
+- This project was inspired by the official Disney website.
+- Special thanks to the MovieDB for providing the API to fetch movie and TV show data.
