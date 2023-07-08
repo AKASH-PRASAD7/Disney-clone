@@ -25,13 +25,13 @@ const Searchsection = () => {
   } = data;
 
   const searchInput = searchQuery;
-  useEffect(() => {
-    window.scrollTo(0, 0);
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
 
-    fetchUpcoming();
+  //   fetchUpcoming();
 
-    // eslint-disable-next-line
-  }, []);
+  //   // eslint-disable-next-line
+  // }, []);
   useEffect(() => {
     searchInput && searchMovies(searchInput);
     searchInput && searchTv(searchInput);

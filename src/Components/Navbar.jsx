@@ -41,7 +41,7 @@ const Navbar = () => {
                 <BiHome />
               </div>
             </Link>
-            <Link to="/list">
+            <Link to="/discover">
               <div className="cursor-pointer ">
                 <BiMovie />
               </div>

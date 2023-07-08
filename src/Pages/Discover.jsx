@@ -2,7 +2,7 @@ import React from "react";
 import AlltvMovie from "../Components/AlltvMovie";
 import Navbar from "../Components/Navbar";
 
-const Watch = () => {
+const Discover = () => {
   return (
     <div className="text-white">
       <div className="flex">
@@ -15,4 +15,4 @@ const Watch = () => {
   );
 };
 
-export default Watch;
+export default Discover;

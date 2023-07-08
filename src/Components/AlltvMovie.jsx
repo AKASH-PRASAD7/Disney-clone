@@ -20,7 +20,9 @@ const AlltvMovie = () => {
     fetchtvAdventure,
     page,
     movieListData,
+    total,
     setMovieListData,
+    setPage,
   } = data1;
 
   const [movie, setmovie] = useState("Movies");
@@ -28,12 +30,14 @@ const AlltvMovie = () => {
   const handleChange = (event, newmovie) => {
     setmovie(newmovie);
     setMovieListData([]);
+    setPage(1);
   };
 
   const [genre, setGenre] = useState("Science Fiction");
   const handleGenre = (event, newmovie) => {
-    setMovieListData([]);
     setGenre(newmovie);
+    setMovieListData([]);
+    setPage(1);
   };
 
   //Movies
@@ -71,9 +75,9 @@ const AlltvMovie = () => {
         fetchtvAdventure();
       }
     }
-    //eslint - disable - next - line;
+    //eslint-disable-next-line;
   }, [genre, page, movie]);
-
+  console.log(page);
   return (
     <div>
       <div className="flex justify-center m-6">
@@ -108,13 +112,24 @@ const AlltvMovie = () => {
       <div>
         {movie === "Movies"
           ? movieListData && (
-              <Movielist movie={movie} genre={genre} data={movieListData} />
+              <Movielist
+                total={total}
+                movie={movie}
+                isMovie={true}
+                genre={genre}
+                data={movieListData}
+              />
             )
           : movieListData && (
-              <Movielist movie={movie} genre={genre} data={movieListData} />
+              <Movielist
+                total={total}
+                movie={movie}
+                isMovie={false}
+                genre={genre}
+                data={movieListData}
+              />
             )}
       </div>
-      {/* <p>{page}</p> */}
     </div>
   );
 };
