@@ -68,7 +68,7 @@ npm start
 
 6. Open the application in your browser:
    
-[http://localhost:3000]
+(http://localhost:3000)
 
 ## Contributing
 
