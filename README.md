@@ -1,10 +1,13 @@
-# Disney Clone Website
+# Disney Clone Website (https://disney-clone-omega-vert.vercel.app/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 This project is a clone of the Disney website, built using React and Tailwind CSS. It provides features like searching for movies and TV shows, discovering new movies and TV shows, and more. The data for movies and TV shows is fetched from the MovieDB API using the Fetch API.
 
 ## Screenshots
+<img width="907" alt="1" src="https://github.com/AKASH-PRASAD7/Disney-clone/assets/110546856/f44b8cde-8398-40d5-92e6-de820727bff5">
+<img width="906" alt="3" src="https://github.com/AKASH-PRASAD7/Disney-clone/assets/110546856/e55ad2ae-7eb4-4211-84ed-5f97d7f3d88d">
+<img width="907" alt="4" src="https://github.com/AKASH-PRASAD7/Disney-clone/assets/110546856/b3acc8ad-2f4f-48fc-b726-d117fb0d189c">
 
 ## Features
 
@@ -64,10 +67,8 @@ npm start
 ```
 
 6. Open the application in your browser:
-
-```
-http://localhost:3000
-```
+   
+(http://localhost:3000)
 
 ## Contributing
 
