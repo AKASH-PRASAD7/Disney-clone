@@ -20,9 +20,12 @@ const Carditem = (props) => {
   const id = props.data.id;
   return (
     <Link to={`/play/${id}`}>
-      <div onClick={seTmovie} className="card">
+      <div
+        onClick={seTmovie}
+        className="card w-48 h-72 mb-2 md:w-40 md:h-60 sm:w-40 sm:h-60 xs:w-36 xs:h-56 xxs:w-36 xxs:h-56 "
+      >
         <img
-          className="h-full w-full object-cover rounded-lg"
+          className="h-full w-full  object-cover rounded-lg"
           src={
             props.image
               ? `https://image.tmdb.org/t/p/original${props.image}`

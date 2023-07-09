@@ -2,35 +2,33 @@ import React from "react";
 import Carditem from "./Carditem";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { Pagination } from "swiper";
 
 const Cardcarousel = (props) => {
   const data = props.data;
   return (
     <>
       <div className="text-white">
-        <h1 className="mb-4 text-4xl font-semibold">{props.title}</h1>
+        <h1 className="mb-4 text-4xl font-semibold md:text-3xl  sm:text-2xl  xs:text-xl  xxs:text-xl">
+          {props.title}
+        </h1>
         <Swiper
           slidesPerView={4}
           spaceBetween={10}
-          pagination={{
-            clickable: true,
-          }}
           breakpoints={{
-            360: {
-              slidesPerView: 1,
-              spaceBetween: 20,
+            350: {
+              slidesPerView: 2,
+              spaceBetween: 5,
             },
             600: {
-              slidesPerView: 2,
-              spaceBetween: 20,
+              slidesPerView: 3,
+              spaceBetween: 5,
             },
             640: {
               slidesPerView: 3,
-              spaceBetween: 20,
+              spaceBetween: 10,
             },
             768: {
-              slidesPerView: 3,
+              slidesPerView: 4,
               spaceBetween: 40,
             },
             1024: {
@@ -38,7 +36,6 @@ const Cardcarousel = (props) => {
               spaceBetween: 40,
             },
           }}
-          modules={[Pagination]}
           className="mySwiper"
         >
           {data &&
