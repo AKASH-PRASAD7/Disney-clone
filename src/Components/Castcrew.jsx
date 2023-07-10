@@ -7,7 +7,7 @@ const Castcrew = ({ movie }) => {
   return (
     <div className="text-white">
       <h1 className="mt-4 ml-6 font-semibold  text-4xl font-semibold md:text-3xl  sm:text-2xl  xs:text-2xl  xxs:text-2xl">
-        {movie.cast.length !== 0 && `Cast`}
+        {movie.cast && `Cast`}
       </h1>
       <Swiper
         slidesPerView={1}
@@ -61,7 +61,7 @@ const Castcrew = ({ movie }) => {
           })}
       </Swiper>
       <h1 className="mt-4 ml-6 font-semibold  text-4xl font-semibold md:text-3xl  sm:text-2xl  xs:text-2xl  xxs:text-2xl">
-        {movie.crew.length !== 0 && `Crew`}
+        {movie.crew && `Crew`}
       </h1>
       <Swiper
         slidesPerView={1}
