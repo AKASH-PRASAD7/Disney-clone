@@ -27,13 +27,6 @@ const Searchsection = () => {
   } = data;
 
   const searchInput = searchQuery;
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-
-  //   fetchUpcoming();
-
-  //   // eslint-disable-next-line
-  // }, []);
   useEffect(() => {
     if (alignment === "Movies") {
       searchInput && searchMovies(searchInput);
@@ -59,7 +52,9 @@ const Searchsection = () => {
           <ToggleButton value="Tv Series">Tv Series</ToggleButton>
         </ToggleButtonGroup>
       </div>
-      <p className="mb-4 mt-2 text-4xl font-semibold">Search {alignment}</p>
+      <p className="text-4xl font-semibold md:text-3xl  sm:text-2xl  xs:text-2xl  xxs:text-2xl">
+        Search {alignment}
+      </p>
       <div className="flex flex-wrap gap-4">
         {loading && <Loader />}
         {alignment === "Movies"

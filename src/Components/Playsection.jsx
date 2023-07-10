@@ -22,7 +22,7 @@ const Playsection = ({ data, isMovie }) => {
     <>
       {data && (
         <div className="text-white ">
-          <div className="movieposter static  bg-cover bg-center h-screen">
+          <div className="movieposter static  bg-cover bg-center h-screen lg:block md:block sm:hidden xs:hidden xxs:hidden">
             <img
               className="h-full w-full mix-blend-overlay"
               src={`${url}${data.backdrop_path}`}
@@ -33,7 +33,7 @@ const Playsection = ({ data, isMovie }) => {
                 style={{ width: "32%" }}
                 className=" w-1/3  h-full flex items-center justify-center"
               >
-                <div className="card cardplay rounded-lg flex items-center justify-center">
+                <div className="card cardplay rounded-lg flex items-center justify-center lg:block md:hidden sm:hidden xs:hidden xxs:hidden">
                   <img
                     className="h-full w-full object-cover rounded-lg"
                     src={data.poster_path && `${url}${data.poster_path}`}
@@ -45,7 +45,7 @@ const Playsection = ({ data, isMovie }) => {
                 style={{ width: "68%" }}
                 className="moviedetails  flex flex-col items-center justify-center text-2xl font-bold "
               >
-                <div className="w-full">
+                <div className="w-full ">
                   <h1>
                     {isMovie
                       ? data &&
@@ -94,7 +94,7 @@ const Playsection = ({ data, isMovie }) => {
               </div>
             </div>
           </div>
-          <div className="text-4xl mt-4 ml-6 font-semibold">
+          <div className="text-4xl font-semibold md:text-3xl  sm:text-2xl  xs:text-2xl  xxs:text-2xl">
             Overview
             <p className="text-base font-normal pt-4">
               {data.overview && data.overview

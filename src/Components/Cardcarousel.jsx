@@ -9,7 +9,7 @@ const Cardcarousel = (props) => {
     <>
       <div className="text-white">
         <h1 className="mb-4 text-4xl font-semibold md:text-3xl  sm:text-2xl  xs:text-xl  xxs:text-xl">
-          {props.title}
+          {data.length !== 0 && props.title}
         </h1>
         <Swiper
           slidesPerView={4}

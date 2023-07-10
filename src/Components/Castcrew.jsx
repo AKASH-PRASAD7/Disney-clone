@@ -6,13 +6,20 @@ const Castcrew = ({ movie }) => {
   const url = "https://image.tmdb.org/t/p/w500/";
   return (
     <div className="text-white">
-      <h1 className="text-4xl mt-4 ml-6 font-semibold">Cast</h1>
+      <h1 className="mt-4 ml-6 font-semibold  text-4xl font-semibold md:text-3xl  sm:text-2xl  xs:text-2xl  xxs:text-2xl">
+        {movie.cast.length !== 0 && `Cast`}
+      </h1>
       <Swiper
         slidesPerView={1}
         spaceBetween={10}
         breakpoints={{
-          640: {
+          360: {
             slidesPerView: 2,
+            spaceBetween: 10,
+          },
+
+          640: {
+            slidesPerView: 3,
             spaceBetween: 20,
           },
           768: {
@@ -31,17 +38,19 @@ const Castcrew = ({ movie }) => {
             return (
               index < 8 && (
                 <SwiperSlide key={index} className="cardslider">
-                  <div className=" mt-6 min-h-48 min-w-48 ">
-                    <img
-                      className="rounded-full p-4 "
-                      src={
-                        each.profile_path
-                          ? `${url}${each.profile_path}`
-                          : `https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png`
-                      }
-                      alt={each.name}
-                    />
-                    <div className=" text-sm">
+                  <div className=" mt-6 ">
+                    <div className="lg:w-48 lg:h-48 mb-2 md:w-40 md:h-40 sm:w-40 sm:h-40 xs:w-40 xs:h-40 xxs:w-36 xxs:h-36">
+                      <img
+                        className="rounded-full mb-4 p-4  "
+                        src={
+                          each.profile_path
+                            ? `${url}${each.profile_path}`
+                            : `https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png`
+                        }
+                        alt={each.name}
+                      />
+                    </div>
+                    <div className=" text-sm  lg:w-48 lg:h-48 mb-2 md:w-40 md:h-40 sm:w-40 sm:h-40 xs:w-36 xs:h-36 xxs:w-32 xxs:h-32 ">
                       <p className="font-bold text-lg">{each.original_name}</p>
                       <p>As : {each.character}</p>
                     </div>
@@ -51,7 +60,9 @@ const Castcrew = ({ movie }) => {
             );
           })}
       </Swiper>
-      <h1 className="text-4xl mt-4 ml-6  font-semibold">Crew</h1>
+      <h1 className="mt-4 ml-6 font-semibold  text-4xl font-semibold md:text-3xl  sm:text-2xl  xs:text-2xl  xxs:text-2xl">
+        {movie.crew.length !== 0 && `Crew`}
+      </h1>
       <Swiper
         slidesPerView={1}
         spaceBetween={10}
@@ -76,17 +87,19 @@ const Castcrew = ({ movie }) => {
             return (
               index < 2 && (
                 <SwiperSlide key={index} className="cardslider">
-                  <div className=" mt-6 min-h-48 min-w-48 ">
-                    <img
-                      className="rounded-full p-4 "
-                      src={
-                        each.profile_path
-                          ? `${url}${each.profile_path}`
-                          : `https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png`
-                      }
-                      alt={each.name}
-                    />
-                    <div className=" text-sm">
+                  <div className=" mt-6  ">
+                    <div className="lg:w-48 lg:h-48 mb-2 md:w-40 md:h-40 sm:w-40 sm:h-40 xs:w-40 xs:h-40 xxs:w-36 xxs:h-36">
+                      <img
+                        className="rounded-full mb-4 p-4 "
+                        src={
+                          each.profile_path
+                            ? `${url}${each.profile_path}`
+                            : `https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png`
+                        }
+                        alt={each.name}
+                      />
+                    </div>
+                    <div className=" text-sm text-sm  lg:w-48 lg:h-48 mb-2 md:w-40 md:h-40 sm:w-40 sm:h-40 xs:w-36 xs:h-36 xxs:w-32 xxs:h-32">
                       <p className="font-bold text-lg">{each.original_name}</p>
                       <p className="font-bold text-lg">{each.job}</p>
                     </div>

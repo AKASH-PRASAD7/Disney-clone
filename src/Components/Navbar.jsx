@@ -48,10 +48,7 @@ const Navbar = () => {
   };
 
   return (
-    <div
-      style={{ width: "10%" }}
-      className="h-screen z-10 text-white sticky top-0 left-0"
-    >
+    <div style={{ width: "10%" }} className="h-screen z-10 text-white ">
       <div>
         {/* <Modal
           open={open}
@@ -104,17 +101,10 @@ const Navbar = () => {
       </div>
       <nav className=" mt-4 mx-3">
         <div className="flex flex-col gap-4">
-          <div className="flex flex-col gap-1 cursor-pointer ">
+          <div className="flex lg:w-20 md:w-16  sm:w-14 xs:w-12 xxs:w-10 flex-col lg:ml-2 mt-2 cursor-pointer ">
             <Link to="/">
               <img src={logo} alt="logo" />
             </Link>
-            <button className="bg-yellow-500 hover:bg-orange-500 text-white font-semibold py-2 px-2 rounded-full">
-              <span className="flex">
-                {" "}
-                Subscribe
-                <FaAngleRight className="mt-1" />
-              </span>
-            </button>
           </div>
           <div className="flex flex-col items-center mt-4 p-4 gap-8 text-2xl ">
             <div onClick={handleOpen} className="cursor-pointer">

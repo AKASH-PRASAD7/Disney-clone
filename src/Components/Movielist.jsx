@@ -13,10 +13,10 @@ const Movielist = ({ movie, genre, data, isMovie }) => {
   //   console.log("total=", total);
   //   console.count("yes");
   // };
-  console.log(data);
+  // console.log(data);
   return (
     <>
-      <p className="m-4 text-4xl font-semibold">{`Top ${movie} In ${genre}`}</p>
+      <p className="text-4xl font-semibold md:text-3xl  sm:text-2xl  xs:text-2xl  xxs:text-2xl ml-6">{`Top ${movie} In ${genre}`}</p>
 
       {/* <InfiniteScroll
         dataLength={total}

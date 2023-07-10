@@ -77,10 +77,10 @@ const AlltvMovie = () => {
     }
     //eslint-disable-next-line;
   }, [genre, page, movie]);
-  console.log(page);
+  // console.log(page);
   return (
     <div>
-      <div className="flex justify-center m-6">
+      <div className="flex justify-center lg:w-4/5 md:w-4/5 h-auto sm:w-4/5 xs:4/5 xxs:w-20 m-auto mt-5 m-6">
         <ToggleButtonGroup
           color="info"
           value={genre}
@@ -89,7 +89,7 @@ const AlltvMovie = () => {
           aria-label="Platform"
           sx={{ bgcolor: blueGrey[900] }}
         >
-          <ToggleButton value="Science Fiction">Science Fiction</ToggleButton>
+          <ToggleButton value="Science Fiction">Sc-Fi</ToggleButton>
           <ToggleButton value="Fantasy">Fantasy</ToggleButton>
           <ToggleButton value="Action">Action</ToggleButton>
           <ToggleButton value="Adventure">Adventure</ToggleButton>

@@ -5,7 +5,7 @@ import Navbar from "../Components/Navbar";
 const Discover = () => {
   return (
     <div className="text-white">
-      <div className="flex">
+      <div className="flex sticky ">
         <Navbar />
         <div className=" w-full">
           <AlltvMovie />

@@ -30,8 +30,8 @@ const Reviewcard = ({ review }) => {
   };
   return (
     <Card
-      className="rounded-lg"
-      sx={{ maxWidth: 345, bgcolor: blueGrey[900], color: blueGrey[50] }}
+      className="rounded-lg lg:w-96 lg:h-60 md:w-72 md:h-60 sm:w-60 sm:h-52 xs:w-48 xs:h-40 ml-6 "
+      sx={{ bgcolor: blueGrey[900], color: blueGrey[50] }}
     >
       <CardHeader
         avatar={

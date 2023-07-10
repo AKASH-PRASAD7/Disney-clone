@@ -22,7 +22,7 @@ const Carditem = (props) => {
     <Link to={`/play/${id}`}>
       <div
         onClick={seTmovie}
-        className="card w-48 h-72 mb-2 md:w-40 md:h-60 sm:w-40 sm:h-60 xs:w-36 xs:h-56 xxs:w-36 xxs:h-56 "
+        className="card lg:w-48 lg:h-72 mb-2 md:w-40 md:h-60 sm:w-40 sm:h-60 xs:w-36 xs:h-56 xxs:w-36 xxs:h-56 "
       >
         <img
           className="h-full w-full  object-cover rounded-lg"
