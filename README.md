@@ -45,7 +45,7 @@ npm install
 3. Add your MovieDb API key:
 
 ```
-mkdir .env.local
+touch .env.local
 ```
 
 - REACT_APP_API_KEY=<YOUR_KEY>
