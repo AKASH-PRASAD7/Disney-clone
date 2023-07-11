@@ -16,6 +16,11 @@ const MovieState = (props) => {
   const [isMovie, setIsMovie] = useState(true);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
+  const [userData, setUserData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
 
   //tv
   const [TvDetail, setTvDetail] = useState({});
@@ -286,6 +291,11 @@ const MovieState = (props) => {
     setLoading(false);
   };
 
+  //login
+  const getUser = async () => {
+    const data = await JSON.parse(localStorage.getItem("user"));
+    setUserData({ ...data });
+  };
   return (
     <MovieContext.Provider
       value={{
@@ -341,6 +351,9 @@ const MovieState = (props) => {
         fetchtvAdventure,
         total,
         setMovieListData,
+        getUser,
+        setUserData,
+        userData,
       }}
     >
       {props.children}

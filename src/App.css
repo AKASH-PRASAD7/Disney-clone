@@ -22,11 +22,7 @@ body {
   height: 100%;
   object-fit: cover;
 }
-/* .card {
-  width: 12rem;
-  height: 17rem;
-  margin-bottom: 2rem;
-} */
+
 .cardslider,
 .hero {
   background-color: #0f1014;

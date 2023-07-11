@@ -1,15 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect } from "react";
 import logo from "../Images/Disney_Plus.svg.png";
-import { FaAngleRight } from "react-icons/fa6";
 import { BiUserCircle } from "react-icons/bi";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { BiHome } from "react-icons/bi";
 import { BiMovie } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { IoMdClose } from "react-icons/io";
+import MovieContext from "../Context/Movies/MoviesContext";
 
 const style = {
   position: "absolute",
@@ -17,87 +16,132 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
+  height: 350,
+  boxShadow: 10,
+  p: 1,
 };
 
 const Navbar = () => {
+  const data = useContext(MovieContext);
+  const { getUser, setUserData, userData } = data;
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+
+  const logOut = () => {
+    localStorage.removeItem("user");
+    setUserData({
+      name: "",
+      email: "",
+      password: "",
+    });
+    handleClose();
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    // Print form data
-    console.log("Name:", name);
-    console.log("Email:", email);
-    console.log("Password:", password);
-
     // You can perform additional actions with the form data here
+    localStorage.setItem("user", JSON.stringify(userData));
 
     // Reset form fields
-    setName("");
-    setEmail("");
-    setPassword("");
+    setUserData({
+      name: "",
+      email: "",
+      password: "",
+    });
+    handleClose();
   };
+  useEffect(() => {
+    getUser();
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <div style={{ width: "10%" }} className="h-screen z-10 text-white ">
       <div>
-        {/* <Modal
+        <Modal
           open={open}
           onClose={handleClose}
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
         >
-          <Box sx={style}>hello</Box>
-          <IoMdClose onClick={handleClose} />
-          {/* <form onSubmit={handleSubmit}>
-            <label htmlFor="name">Name:</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-            <br />
-            <br />
-
-            <label htmlFor="email">Email:</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <br />
-            <br />
-
-            <label htmlFor="email">Password:</label>
-            <input
-              type="password"
-              id="password"
-              name="email"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-            <br />
-            <br />
-
-            <input type="submit" value="Submit" />
-          </form> 
-        </Modal> */}
+          <Box sx={style}>
+            <div
+              style={{ backgroundColor: "#0f1014" }}
+              className=" text-white rounded-lg  h-full pb-6  mb-4 flex justify-between"
+            >
+              <div className=" h-full m-auto w-5/6   p-4">
+                {!userData.name ? (
+                  <form className="flex flex-col pb-4 " onSubmit={handleSubmit}>
+                    <label htmlFor="Name">Full Name</label>
+                    <input
+                      className="outline text-black rounded-lg h-8 pl-2 pr-2 "
+                      type="text"
+                      value={userData.name}
+                      minLength={5}
+                      id="Name"
+                      name="Name"
+                      onChange={(event) =>
+                        setUserData({ ...userData, name: event.target.value })
+                      }
+                      placeholder="John Doe"
+                    />
+                    <br />
+                    <label htmlFor="Email">Enter Email</label>
+                    <input
+                      className="outline text-black rounded-lg h-8 pl-2 pr-2"
+                      type="email"
+                      required
+                      name="Email"
+                      id="Email"
+                      onChange={(event) =>
+                        setUserData({ ...userData, email: event.target.value })
+                      }
+                      value={userData.email}
+                      placeholder="jhon@email.com"
+                    />
+                    <br />
+                    <label htmlFor="Password">Enter Password</label>
+                    <input
+                      className="outline text-black  rounded-lg h-8 pl-2 pr-2"
+                      type="password"
+                      id="Password"
+                      name="Password"
+                      value={userData.password}
+                      onChange={(event) =>
+                        setUserData({
+                          ...userData,
+                          password: event.target.value,
+                        })
+                      }
+                      placeholder="Minimum 8 characters"
+                      required
+                      minLength={8}
+                    />
+                    <br />
+                    <button
+                      className="bg-lime-600 h-10 text-xl font-semibold rounded-lg hover:bg-lime-700 "
+                      type="submit"
+                    >
+                      Sign Up
+                    </button>
+                  </form>
+                ) : (
+                  <button
+                    className="bg-red-500 h-10 text-xl font-semibold rounded-lg hover:bg-red-600 "
+                    type="submit"
+                    onClick={logOut}
+                  >
+                    Log out
+                  </button>
+                )}
+              </div>
+              <button className="  h-10 text-3xl" onClick={handleClose}>
+                <IoMdClose />
+              </button>
+            </div>
+          </Box>
+        </Modal>
       </div>
       <nav className=" mt-4 mx-3">
         <div className="flex flex-col gap-4">
