@@ -21,6 +21,7 @@ const MovieState = (props) => {
     email: "",
     password: "",
   });
+  const [isuser, setIsuser] = useState(false);
 
   //tv
   const [TvDetail, setTvDetail] = useState({});
@@ -294,6 +295,7 @@ const MovieState = (props) => {
   //login
   const getUser = async () => {
     const data = await JSON.parse(localStorage.getItem("user"));
+
     setUserData({ ...data });
   };
   return (
@@ -354,6 +356,8 @@ const MovieState = (props) => {
         getUser,
         setUserData,
         userData,
+        isuser,
+        setIsuser,
       }}
     >
       {props.children}

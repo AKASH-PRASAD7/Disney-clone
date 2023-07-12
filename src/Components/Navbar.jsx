@@ -15,15 +15,14 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 400,
-  height: 350,
+  // width: 400,
   boxShadow: 10,
   p: 1,
 };
 
 const Navbar = () => {
   const data = useContext(MovieContext);
-  const { getUser, setUserData, userData } = data;
+  const { getUser, setUserData, userData, isuser, setIsuser } = data;
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -35,6 +34,7 @@ const Navbar = () => {
       email: "",
       password: "",
     });
+    setIsuser(false);
     handleClose();
   };
 
@@ -42,7 +42,7 @@ const Navbar = () => {
     event.preventDefault();
     // You can perform additional actions with the form data here
     localStorage.setItem("user", JSON.stringify(userData));
-
+    getUser.name && setIsuser(true);
     // Reset form fields
     setUserData({
       name: "",
@@ -51,11 +51,15 @@ const Navbar = () => {
     });
     handleClose();
   };
+
+  //Need to fix login for first time
   useEffect(() => {
     getUser();
-    // eslint-disable-next-line
+    // console.log(userData.name);
+    if (userData.name) {
+      setIsuser(true);
+    }
   }, []);
-
   return (
     <div style={{ width: "10%" }} className="h-screen z-10 text-white ">
       <div>
@@ -65,13 +69,13 @@ const Navbar = () => {
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
         >
-          <Box sx={style}>
+          <Box className="w-96" sx={style}>
             <div
               style={{ backgroundColor: "#0f1014" }}
               className=" text-white rounded-lg  h-full pb-6  mb-4 flex justify-between"
             >
               <div className=" h-full m-auto w-5/6   p-4">
-                {!userData.name ? (
+                {!isuser ? (
                   <form className="flex flex-col pb-4 " onSubmit={handleSubmit}>
                     <label htmlFor="Name">Full Name</label>
                     <input
@@ -119,6 +123,7 @@ const Navbar = () => {
                       minLength={8}
                     />
                     <br />
+
                     <button
                       className="bg-lime-600 h-10 text-xl font-semibold rounded-lg hover:bg-lime-700 "
                       type="submit"
@@ -127,13 +132,25 @@ const Navbar = () => {
                     </button>
                   </form>
                 ) : (
-                  <button
-                    className="bg-red-500 h-10 text-xl font-semibold rounded-lg hover:bg-red-600 "
-                    type="submit"
-                    onClick={logOut}
-                  >
-                    Log out
-                  </button>
+                  <div>
+                    <div className="  w-full">
+                      <img
+                        className="rounded-full mx-20  h-32"
+                        src="https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg"
+                        alt="user"
+                      />
+                      <p className=" text-xl font-semibold text-center">
+                        {userData.name}
+                      </p>
+                    </div>
+                    <button
+                      className="bg-red-500 h-10 mx-8 text-xl w-4/5 mt-4  font-semibold rounded-lg hover:bg-red-600 "
+                      type="submit"
+                      onClick={logOut}
+                    >
+                      Log out
+                    </button>
+                  </div>
                 )}
               </div>
               <button className="  h-10 text-3xl" onClick={handleClose}>
