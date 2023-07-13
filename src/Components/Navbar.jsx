@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { IoMdClose } from "react-icons/io";
+import { FaHeart } from "react-icons/fa";
 import MovieContext from "../Context/Movies/MoviesContext";
 
 const style = {
@@ -44,21 +45,17 @@ const Navbar = () => {
     localStorage.setItem("user", JSON.stringify(userData));
     getUser.name && setIsuser(true);
     // Reset form fields
-    setUserData({
-      name: "",
-      email: "",
-      password: "",
-    });
     handleClose();
   };
 
   //Need to fix login for first time
   useEffect(() => {
     getUser();
-    // console.log(userData.name);
+
     if (userData.name) {
       setIsuser(true);
     }
+    // eslint-disable-next-line
   }, []);
   return (
     <div style={{ width: "10%" }} className="h-screen z-10 text-white ">
@@ -186,6 +183,13 @@ const Navbar = () => {
                 <BiMovie />
               </div>
             </Link>
+            {isuser && (
+              <Link to="/favourites">
+                <div className="cursor-pointer ">
+                  <FaHeart />
+                </div>
+              </Link>
+            )}
           </div>
         </div>
       </nav>

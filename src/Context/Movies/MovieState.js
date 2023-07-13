@@ -295,8 +295,8 @@ const MovieState = (props) => {
   //login
   const getUser = async () => {
     const data = await JSON.parse(localStorage.getItem("user"));
-
     setUserData({ ...data });
+    data && setIsuser(true);
   };
   return (
     <MovieContext.Provider

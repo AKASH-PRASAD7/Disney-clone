@@ -5,6 +5,7 @@ import Play from "./Pages/Play";
 import Search from "./Pages/Search";
 import MovieState from "./Context/Movies/MovieState";
 import Discover from "./Pages/Discover";
+import Favourites from "./Pages/Favourites";
 function App() {
   return (
     <div className="App">
@@ -15,6 +16,7 @@ function App() {
             <Route exact path="/play/:id" element={<Play />} />
             <Route exact path="/search" element={<Search />} />
             <Route exact path="/discover" element={<Discover />} />
+            <Route exact path="/favourites" element={<Favourites />} />
           </Routes>
         </Router>
       </MovieState>
