@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import MovieContext from "../Context/Movies/MoviesContext";
 import { FaEye } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import HoverText from "./Hovertext";
 const Userinfo = () => {
   const Navigate = useNavigate();
   const [type, setType] = useState("password");
@@ -11,8 +12,6 @@ const Userinfo = () => {
   const data = useContext(MovieContext);
 
   const { userData, isuser } = data;
-  console.log(userData);
-  console.log(isuser);
   useEffect(() => {
     if (!isuser) {
       Navigate("/");
@@ -38,15 +37,21 @@ const Userinfo = () => {
             <p className="lg:text-xl md:text-lg sm:text-base xs:text-sm xxs:text-xs font-semibold">
               Email : {userData.email}{" "}
             </p>
-            <p className="flex lg:text-xl md:text-lg sm:text-base xs:text-sm xxs:text-xs  font-semibold">
-              Password:{" "}
+            <div className="flex lg:text-xl md:text-lg sm:text-base xs:text-sm xxs:text-xs  font-semibold">
+              <p>Password: </p>
               <input
-                className="bg-[#171717] lg:w-48 md:w-36 sm:w-32 xs:w-28 xxs:w-28 mx-2 px-2 rounded-md"
+                className="bg-[#171717] h-10 lg:w-48 md:w-36 sm:w-32 xs:w-28 xxs:w-28 mx-2 px-2 rounded-md"
                 type={type}
+                readOnly
                 value={userData.password}
               />{" "}
-              <FaEye className="cursor-pointer m-2" onClick={toggleType} />
-            </p>
+              <HoverText text="Show">
+                <FaEye
+                  className="cursor-pointer  text-2xl text-white"
+                  onClick={toggleType}
+                />
+              </HoverText>
+            </div>
           </div>
         </div>
       </div>

@@ -10,6 +10,7 @@ import Modal from "@mui/material/Modal";
 import { IoMdClose } from "react-icons/io";
 import { FaHeart } from "react-icons/fa";
 import MovieContext from "../Context/Movies/MoviesContext";
+import HoverText from "./Hovertext";
 
 const style = {
   position: "absolute",
@@ -34,6 +35,7 @@ const Navbar = () => {
       name: "",
       email: "",
       password: "",
+      favourites: [],
     });
     setIsuser(false);
     handleClose();
@@ -161,32 +163,45 @@ const Navbar = () => {
         <div className="flex flex-col gap-4">
           <div className="flex lg:w-20 md:w-16  sm:w-14 xs:w-12 xxs:w-10 flex-col lg:ml-2 mt-2 cursor-pointer ">
             <Link to="/">
-              <img src={logo} alt="logo" />
+              <HoverText text="Disney">
+                <img src={logo} alt="logo" />
+              </HoverText>
             </Link>
+            <HoverText text="logo" />
           </div>
           <div className="flex flex-col items-center mt-4 p-4 gap-8 text-2xl ">
             <div onClick={handleOpen} className="cursor-pointer">
-              <BiUserCircle />
+              <HoverText text="account">
+                <BiUserCircle className="text-2xl text-white" />
+              </HoverText>
             </div>
             <Link to="/search">
               <div className="cursor-pointer">
-                <FaMagnifyingGlass />
+                <HoverText text="Search">
+                  <FaMagnifyingGlass className="text-2xl text-white" />
+                </HoverText>
               </div>
             </Link>
             <Link to="/">
               <div className="cursor-pointer">
-                <BiHome />
+                <HoverText text="home">
+                  <BiHome className="text-2xl text-white" />
+                </HoverText>
               </div>
             </Link>
             <Link to="/discover">
               <div className="cursor-pointer ">
-                <BiMovie />
+                <HoverText text="Discover">
+                  <BiMovie className="text-2xl text-white" />
+                </HoverText>
               </div>
             </Link>
             {isuser && (
               <Link to="/favourites">
                 <div className="cursor-pointer ">
-                  <FaHeart />
+                  <HoverText text="favourites">
+                    <FaHeart className="text-2xl text-white" />
+                  </HoverText>
                 </div>
               </Link>
             )}

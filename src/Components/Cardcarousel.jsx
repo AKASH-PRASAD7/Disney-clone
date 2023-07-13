@@ -5,6 +5,7 @@ import "swiper/css";
 
 const Cardcarousel = (props) => {
   const data = props.data;
+
   return (
     <>
       <div className="text-white">
