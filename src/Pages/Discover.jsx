@@ -7,9 +7,9 @@ const Discover = () => {
   return (
     <>
       <div className="text-white">
-        <div className="flex sticky ">
+        <div className="flex  ">
           <Navbar />
-          <div className=" w-full">
+          <div style={{ width: "90%" }}>
             <AlltvMovie />
           </div>
         </div>

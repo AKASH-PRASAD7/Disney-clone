@@ -88,7 +88,7 @@ const Playsection = ({ data, isMovie }) => {
                 </div>
                 <div className="w-full mt-4">
                   <button className="rounded-full w-48 h-12 text-xl bg-lime-700 hover:bg-lime-800">
-                    Buy now
+                    $69 Buy now
                   </button>
                 </div>
               </div>

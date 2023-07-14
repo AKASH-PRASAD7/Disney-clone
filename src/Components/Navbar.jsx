@@ -60,7 +60,10 @@ const Navbar = () => {
     // eslint-disable-next-line
   }, []);
   return (
-    <div style={{ width: "10%" }} className="h-screen z-10 text-white ">
+    <div
+      style={{ width: "10%" }}
+      className="h-screen sticky top-0 left-0 z-10 text-white "
+    >
       <div>
         <Modal
           open={open}
@@ -161,7 +164,7 @@ const Navbar = () => {
       </div>
       <nav className=" mt-4 mx-3">
         <div className="flex flex-col gap-4">
-          <div className="flex lg:w-28 md:w-20  sm:w-20 xs:w-20 xxs:w-20  flex-col mt-2 cursor-pointer ">
+          <div className="lg:w-28 md:w-20  sm:w-20 lg:flex md:flex sm:hidden xs:hidden xxs:hidden  flex-col mt-2 cursor-pointer ">
             <Link to="/">
               <HoverText text="Disney">
                 <img src={logo} alt="logo" />

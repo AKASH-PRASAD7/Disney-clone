@@ -79,7 +79,7 @@ const AlltvMovie = () => {
   }, [genre, page, movie]);
   // console.log(page);
   return (
-    <div>
+    <>
       <div className="flex justify-center lg:w-4/5 md:w-4/5 h-auto sm:w-4/5 xs:4/5 xxs:w-20 m-auto mt-5 m-6">
         <ToggleButtonGroup
           color="info"
@@ -109,28 +109,17 @@ const AlltvMovie = () => {
           <ToggleButton value="Tv Series">Tv Series</ToggleButton>
         </ToggleButtonGroup>
       </div>
-      <div>
+      <p className="text-4xl  font-semibold md:text-3xl  sm:text-2xl  xs:text-2xl  xxs:text-2xl ml-10">{`Top ${movie} In ${genre}`}</p>
+      <>
         {movie === "Movies"
           ? movieListData && (
-              <Movielist
-                total={total}
-                movie={movie}
-                isMovie={true}
-                genre={genre}
-                data={movieListData}
-              />
+              <Movielist total={total} isMovie={true} data={movieListData} />
             )
           : movieListData && (
-              <Movielist
-                total={total}
-                movie={movie}
-                isMovie={false}
-                genre={genre}
-                data={movieListData}
-              />
+              <Movielist total={total} isMovie={false} data={movieListData} />
             )}
-      </div>
-    </div>
+      </>
+    </>
   );
 };
 

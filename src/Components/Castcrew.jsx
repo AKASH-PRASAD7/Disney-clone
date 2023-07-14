@@ -39,7 +39,7 @@ const Castcrew = ({ movie }) => {
               index < 8 && (
                 <SwiperSlide key={index} className="cardslider">
                   <div className=" mt-6 ">
-                    <div className="lg:w-48 lg:h-48 mb-2 md:w-40 md:h-40 sm:w-40 sm:h-40 xs:w-40 xs:h-40 xxs:w-36 xxs:h-36">
+                    <div className="lg:w-48 lg:h-48  md:w-40 md:h-40 sm:w-40 sm:h-40 xs:w-40 xs:h-40 xxs:w-36 xxs:h-36">
                       <img
                         className="rounded-full mb-4 p-4  "
                         src={
@@ -87,7 +87,7 @@ const Castcrew = ({ movie }) => {
             return (
               index < 2 && (
                 <SwiperSlide key={index} className="cardslider">
-                  <div className=" mt-6  ">
+                  <div className=" mt-2  ">
                     <div className="lg:w-48 lg:h-48 mb-2 md:w-40 md:h-40 sm:w-40 sm:h-40 xs:w-40 xs:h-40 xxs:w-36 xxs:h-36">
                       <img
                         className="rounded-full mb-4 p-4 "
