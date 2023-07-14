@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import MovieContext from "../Context/Movies/MoviesContext";
 import Castcrew from "../Components/Castcrew";
 import Reviews from "../Components/Reviews";
+import Footer from "../Components/Footer";
 
 const Play = () => {
   const data = useContext(MovieContext);
@@ -88,6 +89,7 @@ const Play = () => {
           )}
         </div>
       </div>
+      <Footer />
     </>
   );
 };

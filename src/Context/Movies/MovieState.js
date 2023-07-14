@@ -20,6 +20,7 @@ const MovieState = (props) => {
     name: "",
     email: "",
     password: "",
+    favourites: [],
   });
   const [isuser, setIsuser] = useState(false);
 

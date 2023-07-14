@@ -30,7 +30,7 @@ const Herocarousel = () => {
       >
         <SwiperSlide className="hero">
           <img
-            className="rounded-lg"
+            className="rounded-lg "
             src={!loading ? url + upcoming[0].poster_path : loader}
             alt="#"
           />

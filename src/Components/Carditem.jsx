@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "../App.css";
 import { Link } from "react-router-dom";
 import MovieContext from "../Context/Movies/MoviesContext";
@@ -9,36 +9,44 @@ import HoverText from "./Hovertext";
  compressed side
 https://image.tmdb.org/t/p/w500/{poster_path}
 original size
-https://image.tmdb.org/t/p/original/{poster_path}
+https://image.tmdb.org/t/p/original/{poster_path }
 */
 
 const Carditem = (props) => {
   const data = useContext(MovieContext);
-  const { setIsMovie, setUserData, userData } = data;
+  const { setIsMovie, setUserData, userData, isuser } = data;
   const Movdata = props.data;
 
   const addToFav = (e, movie) => {
-    console.log(movie);
-    setUserData((prev) => {
-      return {
-        ...prev,
-        favourites: [movie],
-      };
-    });
-    // localStorage.setItem("user", JSON.stringify(userData));
+    if (isuser) {
+      setUserData((prev) => {
+        const newFavourites = prev.favourites || [];
+        const updatedFavourites = newFavourites.concat(movie);
+        console.log(updatedFavourites);
+        return {
+          ...prev,
+          favourites: updatedFavourites,
+        };
+      });
+    }
   };
-  // console.log(userData);
+  useEffect(() => {
+    if (isuser) {
+      localStorage.setItem("user", JSON.stringify(userData));
+    }
+    // eslint-disable-next-line
+  }, [userData]);
 
   const seTmovie = () => {
     props.isMovie ? setIsMovie(true) : setIsMovie(false);
   };
   const id = props.data.id;
   return (
-    <Link to={`/play/${id}`}>
-      <div
-        onClick={seTmovie}
-        className="card relative lg:w-48 lg:h-72 mb-2 md:w-40 md:h-60 sm:w-40 sm:h-60 xs:w-36 xs:h-56 xxs:w-36 xxs:h-56 "
-      >
+    <div
+      onClick={seTmovie}
+      className="card relative lg:w-48 lg:h-72 mb-2 md:w-40 md:h-60 sm:w-40 sm:h-60 xs:w-36 xs:h-56 xxs:w-36 xxs:h-56 "
+    >
+      <Link to={`/play/${id}`}>
         <div className="absolute w-full rounded-t-lg top-0 bg-gray-800">
           <Rating
             name="read-only"
@@ -47,14 +55,16 @@ const Carditem = (props) => {
             size="small"
           />
         </div>
-        <div
-          onClick={(e) => addToFav(e, Movdata)}
-          className="absolute bottom-0 right-0"
-        >
-          <HoverText text="Add to favourites">
-            <FaHeart className="drop-shadow-2xl text-4xl text-red-600  hover:text-red-700" />
-          </HoverText>
-        </div>
+      </Link>
+      <div
+        onClick={(e) => addToFav(e, Movdata)}
+        className="absolute bottom-0 right-0"
+      >
+        <HoverText text="Add to favourites">
+          <FaHeart className="drop-shadow-2xl text-4xl text-red-600  hover:text-red-700" />
+        </HoverText>
+      </div>
+      <Link to={`/play/${id}`}>
         <img
           className="h-full w-full  object-cover rounded-lg"
           src={
@@ -64,8 +74,8 @@ const Carditem = (props) => {
           }
           alt="avatar"
         />
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 };
 

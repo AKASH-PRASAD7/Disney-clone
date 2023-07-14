@@ -1,5 +1,6 @@
 import React from "react";
 import FavSection from "../Components/FavSection";
+import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
 import Userinfo from "../Components/User.info";
 
@@ -13,6 +14,7 @@ const Favourites = () => {
           <FavSection />
         </div>
       </div>
+      <Footer />
     </>
   );
 };

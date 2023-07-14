@@ -161,7 +161,7 @@ const Navbar = () => {
       </div>
       <nav className=" mt-4 mx-3">
         <div className="flex flex-col gap-4">
-          <div className="flex lg:w-20 md:w-16  sm:w-14 xs:w-12 xxs:w-10 flex-col lg:ml-2 mt-2 cursor-pointer ">
+          <div className="flex lg:w-28 md:w-20  sm:w-20 xs:w-20 xxs:w-20  flex-col mt-2 cursor-pointer ">
             <Link to="/">
               <HoverText text="Disney">
                 <img src={logo} alt="logo" />
