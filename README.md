@@ -32,8 +32,6 @@ Certainly! Here's an example of a "Features" section for the README file of a Di
 
 - **User Reviews and Ratings:** Rate and review movies or TV shows, and view average ratings and user reviews to help you make informed viewing choices.
 
-Feel free to customize this list of features based on the specific functionalities you have implemented in your Disney+ clone project. Add or remove features as necessary to accurately reflect the capabilities of your application.
-
 ## Technologies Used
 
 - React: A JavaScript library for building user interfaces. It is used to create the UI components and handle the application's state and logic.
