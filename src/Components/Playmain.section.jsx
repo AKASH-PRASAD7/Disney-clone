@@ -4,10 +4,11 @@ import Castcrew from "../Components/Castcrew";
 import Reviews from "../Components/Reviews";
 import Recommended from "../Components/Recommended";
 import Playsection from "../Components/Playsection";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const Playmainsection = () => {
   const data = useContext(MovieContext);
+
   const {
     fetchMovieById,
     movieDetail,
@@ -32,6 +33,13 @@ const Playmainsection = () => {
     tvReview,
   } = data;
   const { id } = useParams();
+  const navigate = useNavigate();
+  const restrictedMoviedId = ["1279624", "1279633", "1279636"];
+  useEffect(() => {
+    if (restrictedMoviedId.includes(id)) {
+      navigate("/");
+    }
+  }, [id]);
   useEffect(() => {
     window.scrollTo(0, 0);
     if (isMovie) {
